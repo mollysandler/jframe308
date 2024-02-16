@@ -2,9 +2,8 @@ import java.util.*;
 
 public class Driver {
     DummyFrame frame = new DummyFrame();
-    //make a datamanager
-    //pass the files to the datamanager
-    //datamanager will then validate and return panel
+    DataManager dman;
+    //dman should return a datapanel once it is actually working
 
 
     public static void main(String[] args){
@@ -14,13 +13,14 @@ public class Driver {
         FileClass four = new FileClass(null, -1, -2, -3, -4, null);
         FileClass five = new FileClass("andy", -1, -2, -3, -4, "aayush");
 
-
         ArrayList<FileClass> data = new ArrayList<>();
         data.add(one);
         data.add(two);
         data.add(three);
         data.add(four);
         data.add(five);
+
+        DataManager dman = new DataManager(one);
 
         System.out.println(data);
     }
