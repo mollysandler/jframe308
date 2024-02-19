@@ -4,15 +4,15 @@ public class FileClass {
     private int local;
     private int global;
     private int interfaces;
-    private String parent;
+//    private String parent;
 
-    public FileClass(String name, int linesOfCode, int local, int global, int interfaces, String parent) {
+    public FileClass(String name, int linesOfCode, int local, int global, int interfaces) {
         this.name = name;
         this.linesOfCode = linesOfCode;
         this.local = local;
         this.global = global;
         this.interfaces = interfaces;
-        this.parent = parent;
+//        this.parent = parent;
     }
 
     public String getName() { return name;}
@@ -25,7 +25,7 @@ public class FileClass {
 
     public int getInterfaces() {return interfaces;}
 
-    public String getParent() {return parent;}
+//    public String getParent() {return parent;}
 
     public void setName(String name) {this.name = name;}
 
@@ -45,7 +45,7 @@ public class FileClass {
         this.interfaces = interfaces;
     }
 
-    public void setParent(String parent) {
-        this.parent = parent;
-    }
+//    public void setParent(String parent) {
+//        this.parent = parent;
+//    }
 }
