@@ -4,23 +4,18 @@ import java.util.Map;
 
 public class DataManager  {
 
-    public static boolean checkData(ArrayList<HashMap<String, Object[]>> array) {
-        for (HashMap<String, Object[]> map : array) {
-            for (Map.Entry<String, Object[]> entry : map.entrySet()) {
-                String key = entry.getKey();
-                Object[] values = entry.getValue();
+    public static boolean checkData(String key, Object[] values) {
 
-                if (!checkName(key) || !checkValues(values)) {
-                    return false;
-                }
+        if (!checkName(key) || !checkValues(values)) {
+            return false;
+        }
 
-                if (values.length == 5) {
-                    if (!checkName((String) values[4])) {
-                        return false;
-                    }
-                }
+        if (values.length == 5) {
+            if (!checkName((String) values[4])) {
+                return false;
             }
         }
+
         return true;
     }
 
@@ -51,13 +46,15 @@ public class DataManager  {
                 String key = entry.getKey();
                 Object[] values = entry.getValue();
 
-                if (values.length == 5) {
-                    FileClass fInfo = new FileClass(key, (int) values[0], (int) values[1], (int) values[2], (int) values[3], (String) values[4]);
-                    result.add(fInfo);
-                }
-                else if (values.length == 4) {
-                    FileClass fInfo = new FileClass(key, (int) values[0], (int) values[1], (int) values[2], (int) values[3]);
-                    result.add(fInfo);
+                if (DataManager.checkData(key, values)) {
+                    if (values.length == 5) {
+                        FileClass fInfo = new FileClass(key, (int) values[0], (int) values[1], (int) values[2], (int) values[3], (String) values[4]);
+                        result.add(fInfo);
+                    }
+                    else if (values.length == 4) {
+                        FileClass fInfo = new FileClass(key, (int) values[0], (int) values[1], (int) values[2], (int) values[3]);
+                        result.add(fInfo);
+                    }
                 }
             }
         }
