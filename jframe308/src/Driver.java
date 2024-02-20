@@ -9,18 +9,19 @@ public class Driver {
 
 
     public static void main(String[] args){
-        FileClass one = new FileClass("riya", 1, 1, 1, 1, "Jemma");
-        FileClass two = new FileClass("molly", 0, 1, 1, 1, null);
-        FileClass three = new FileClass(null, 0, 0, 0, 0, null);
-        FileClass four = new FileClass(null, -1, -2, -3, -4, null);
-        FileClass five = new FileClass("andy", -1, -2, -3, -4, "aayush");
 
-        ArrayList<FileClass> data = new ArrayList<>();
-        data.add(one);
-        data.add(two);
-        data.add(three);
-        data.add(four);
-        data.add(five);
+        ArrayList<HashMap<String, Object[]>> array = new ArrayList<>();
+
+        HashMap<String, Object[]> map = new HashMap<>();
+        map.put("Poland", new Object[] {5, 6, 5, 2, "poland"});
+        map.put("United States", new Object[] {0, 2, 5, 6, "us"});
+        map.put("Iceland", new Object[] {0, 0, 0, 0});
+        array.add(map);
+
+        if (!DataManager.checkData(array)) {
+            System.out.println("Invalid data");
+        }
+        ArrayList<FileClass> data = DataManager.convertData(array);
 
         System.out.println(data);
 
