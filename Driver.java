@@ -1,8 +1,10 @@
+import javax.swing.*;
+import java.awt.*;
 import java.util.*;
 
 public class Driver {
-    DummyFrame frame = new DummyFrame();
-    DataManager dman;
+//    DummyFrame frame;
+//    DataManager dman;
     //dman should return a datapanel once it is actually working
 
 
@@ -20,8 +22,16 @@ public class Driver {
         data.add(four);
         data.add(five);
 
-        DataManager dman = new DataManager(one);
-
         System.out.println(data);
+
+        DummyFrame frame = new DummyFrame();
+        JPanel dataPanel = PanelManager.showTable( data );
+        frame.add( dataPanel );
+        frame.setContentPane( dataPanel );
+        System.out.println( frame.getPreferredSize());
+        frame.setSize( new Dimension( dataPanel.getPreferredSize().width, dataPanel.getPreferredSize().height + 30) );
+
+        frame.setVisible( true );
+
     }
 }
